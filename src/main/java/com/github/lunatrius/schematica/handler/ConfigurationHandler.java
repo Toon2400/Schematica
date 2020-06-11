@@ -117,7 +117,6 @@ public class ConfigurationHandler {
         loadConfigurationPrinter();
         loadConfigurationSwapSlots();
         loadConfigurationGeneral();
-        loadConfigurationServer();
 
         Schematica.proxy.createFolders();
 
@@ -265,24 +264,6 @@ public class ConfigurationHandler {
                 extraAirBlockList.add(block);
             }
         }
-    }
-
-    private static void loadConfigurationServer() {
-        propPrinterEnabled = configuration.get(Names.Config.Category.SERVER, Names.Config.PRINTER_ENABLED, PRINTER_ENABLED_DEFAULT, Names.Config.PRINTER_ENABLED_DESC);
-        propPrinterEnabled.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.PRINTER_ENABLED);
-        printerEnabled = propPrinterEnabled.getBoolean(PRINTER_ENABLED_DEFAULT);
-
-        propSaveEnabled = configuration.get(Names.Config.Category.SERVER, Names.Config.SAVE_ENABLED, SAVE_ENABLED_DEFAULT, Names.Config.SAVE_ENABLED_DESC);
-        propSaveEnabled.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.SAVE_ENABLED);
-        saveEnabled = propSaveEnabled.getBoolean(SAVE_ENABLED_DEFAULT);
-
-        propLoadEnabled = configuration.get(Names.Config.Category.SERVER, Names.Config.LOAD_ENABLED, LOAD_ENABLED_DEFAULT, Names.Config.LOAD_ENABLED_DESC);
-        propLoadEnabled.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.LOAD_ENABLED);
-        loadEnabled = propLoadEnabled.getBoolean(LOAD_ENABLED_DEFAULT);
-
-        propPlayerQuotaKilobytes = configuration.get(Names.Config.Category.SERVER, Names.Config.PLAYER_QUOTA_KILOBYTES, PLAYER_QUOTA_KILOBYTES_DEFAULT, Names.Config.PLAYER_QUOTA_KILOBYTES_DESC);
-        propPlayerQuotaKilobytes.setLanguageKey(Names.Config.LANG_PREFIX + "." + Names.Config.PLAYER_QUOTA_KILOBYTES);
-        playerQuotaKilobytes = propPlayerQuotaKilobytes.getInt(PLAYER_QUOTA_KILOBYTES_DEFAULT);
     }
 
     private ConfigurationHandler() {}
